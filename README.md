@@ -1,4 +1,4 @@
-# Battle Engine for Ren'Py
+# RPG Battle Engine for Ren'Py
 
 ## Table of contents
 * [Features](#features)
@@ -108,10 +108,10 @@ item_var = Item(name, desc, icon=False, value=0, act=Show("inventory_popup", mes
 * [Monsters sprites from Pokémon Black / White](https://www.spriters-resource.com/ds_dsi/pokemonblackwhite/sheet/34111/)
 * [Item sprites from Atelier Totori: The Adventurer of Arland](https://www.spriters-resource.com/playstation_3/ateliertotoritheadventurerofarland/sheet/67913/)
 * [Backgrounds from Hyperdevotion Noire: Goddess Black Heart](https://www.spriters-resource.com/pc_computer/hyperdevotionnoire/sheet/78589/)
+* [Skill sprites from Castle Clash](https://www.spriters-resource.com/mobile/castleclash/sheet/61773/)
 
 ### Sound effects
 * [Pokémon GO](https://www.sounds-resource.com/mobile/pokemongo/sound/7823/)
 * [Pokémon Sun / Moon](https://www.sounds-resource.com/3ds/pokemonsunmoon/sound/12170/)
 * [FATE Undiscovered Realms](https://www.sounds-resource.com/pc_computer/fateundiscoveredrealms/sound/19238/)
 * [Fire Emblem: Awakening](https://www.sounds-resource.com/3ds/fireemblemawakening/sound/8431/)
-* [Skill sprites from Castle Clash](https://www.spriters-resource.com/mobile/castleclash/sheet/61773/)
