@@ -61,16 +61,16 @@ define character.a = Character("[name]", image="player")
 default a = CharStats("a", img="player", skills=[], equip={'hand': "Bow", 'head': None, 'chest': None, 'accs': None})
 
 define character.y = Character("Yu", image="yu")
-default y = CharStats("y", lvl=3, hpmax=102, wind=30, img="yu", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
+default y = CharStats("y", lvl=3, hpmax=102, img="yu", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
 
 define character.c = Character("Chie", image="chie")
-default c = CharStats("c", lvl=4, hpmax=110, fire=26, img="chie", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
+default c = CharStats("c", lvl=4, hpmax=110, img="chie", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
 
 define character.f = Character("Fuuka", image="fuuka")
-default f = CharStats("f", lvl=5, hpmax=90, water=40, img="fuuka", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
+default f = CharStats("f", lvl=5, hpmax=90, img="fuuka", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
 
 define character.r = Character("Rise", image="rise")
-default r = CharStats("r", lvl=2, hpmax=130, light=10, img="rise", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
+default r = CharStats("r", lvl=2, hpmax=130, img="rise", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
 
 # define character.var = Character("Name", image="")
 # default var = CharStats("var", img="", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
