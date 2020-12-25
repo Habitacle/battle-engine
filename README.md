@@ -57,11 +57,11 @@ monster_var = Monster(name, hpmax, atk, dfn, exp, lvl, img, sfx_atk, anim, skill
 `$ monster_var.append(wild_monsters)`
 
 ### Create new skill:
-1. Open scripts/define/skill_def.rpy and look for the load_skills label
+1. Open scripts/define/battle_def.rpy and look for the other skills defined at the bottom
 2. Follow the examples and use the respective template depending if it's a passive or active skill:
 ```
-skill_var = ActiveSkill(name, pwr, mp_cost, sfx, targ, targs, type='active', trans=None, img=None, back_row=False)`
-skill_var = PassiveSkill(name, sfx=None, img=None, trans=None, lvl=0)
+default skill_var = ActiveSkill(name, pwr, mp_cost, sfx, targ, targs, type='active', trans=None, img=None, back_row=False)`
+default skill_var = PassiveSkill(name, sfx=None, img=None, trans=None, lvl=0)
 ```
 3. You can now append it to a character:
 `$ skill_var.addSkill(a)`
