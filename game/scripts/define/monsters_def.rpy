@@ -1,5 +1,6 @@
 label load_monsters:
     # var = Monster(name, hpmax, atk, dfn, exp, lvl, img, sfx_atk, anim, skills)
+    $ empty = Monster(None, None, None, None, None, None, None, None, dead=True)
     $ mon1 = Monster("Lapras", 20, 15, 1.0, 50, 3, "1", "water", anim=slow_sway, skills=[arrowhail])
     $ mon2 = Monster("Ditto", 50, 20, 6.0, 50, 4, "2", "pound", anim=squeeze, skills=[mindfreeze])
     $ mon3 = Monster("Eevee", 30, 40, 3.0, 50, 5, "3", "tackle", anim=idle_shake, skills=[lifedrain])

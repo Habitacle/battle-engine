@@ -50,27 +50,25 @@ init python:
             renpy.say(None, "Removed {0}.".format(self.equip[slot]))
             self.equip[slot] = None
 
-
-
 define character.p1 = Character("p1")
 default p1 = CharStats("p1")
 define character.p2 = Character("p2")
 default p2 = CharStats("p2")
 
 define character.a = Character("[name]", image="player")
-default a = CharStats("a", img="player", skills=[], equip={'hand': "Bow", 'head': None, 'chest': None, 'accs': None})
+default a = CharStats("a", img="player", skills=[passive1, arrowhail, mindfreeze, thunderbolt, attackall, magicheal], equip={'hand': "Bow", 'head': None, 'chest': None, 'accs': None})
 
 define character.y = Character("Yu", image="yu")
-default y = CharStats("y", lvl=3, hpmax=102, img="yu", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
+default y = CharStats("y", lvl=3, hpmax=102, img="yu", skills=[radar, lavaburst, deathmissile, meteorshower, hellrage], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
 
 define character.c = Character("Chie", image="chie")
-default c = CharStats("c", lvl=4, hpmax=110, img="chie", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
+default c = CharStats("c", lvl=4, hpmax=110, img="chie", skills=[passive2, circleofhealing, mindburn, mindblast, souldrain], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
 
 define character.f = Character("Fuuka", image="fuuka")
-default f = CharStats("f", lvl=5, hpmax=90, img="fuuka", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
+default f = CharStats("f", lvl=5, hpmax=90, img="fuuka", skills=[passive1, iceball, lifedrain, devastationbeam, energybeams, giftofangels], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
 
 define character.r = Character("Rise", image="rise")
-default r = CharStats("r", lvl=2, hpmax=130, img="rise", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
+default r = CharStats("r", lvl=2, hpmax=130, img="rise", skills=[radar, asteroid, swordofdeath, rockthrow, spikeshield, doubleattack], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
 
 # define character.var = Character("Name", image="")
 # default var = CharStats("var", img="", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
