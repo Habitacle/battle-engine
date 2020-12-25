@@ -35,7 +35,6 @@ init python:
                     renpy.pause(0.2, hard=True)
                     renpy.pause(1.0)
                     renpy.hide_screen("player_dmg")
-                    renpy.sound.stop()
 
     def monsterTarg(m):
         global picked_targs
@@ -101,11 +100,11 @@ init python:
             return im.MatrixColor(getImage(m), im.matrix.tint(1,.5,.5))
         if m.state == "heal": # green
             return im.MatrixColor(getImage(m), im.matrix.tint(.5,1,.5))
+        if m.state == "dying":
+            return im.MatrixColor(getImage(m), im.matrix.invert())
         if m.state == "other": # blue
             return im.MatrixColor(getImage(m), im.matrix.tint(.5,.5,1))
-        if m.state == "other2": # invert
-            return im.MatrixColor(getImage(m), im.matrix.invert())
-        if m.state == "other3": # hue
+        if m.state == "other2": # hue
             return im.MatrixColor(getImage(m), im.matrix.hue(90))
         else:
             return getImage(m)

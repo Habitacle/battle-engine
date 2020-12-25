@@ -1,8 +1,13 @@
 label battle:
     $ stopEvent()
-    $ monstersRoll()
-    $ monster_slot = [m1,m2,m3,m4,m5,m6,m7,m8]
-    $ renpy.random.shuffle(monster_slot)
+    if fixedset:
+        $ monstersFixed()
+        $ monster_slot = [m1,m2,m3,m4,m5,m6,m7,m8]
+        $ fixedset = None
+    else:
+        $ monstersRoll()
+        $ monster_slot = [m1,m2,m3,m4,m5,m6,m7,m8]
+        $ renpy.random.shuffle(monster_slot)
     $ asignPos()
     $ row1btn = False
     $ row2btn = False
@@ -52,7 +57,7 @@ label player_select:
         $ p2 = None
     return
 
-screen select_p1:
+screen select_p1():
     style_prefix "confirm"
     frame:
         yalign 0.2
@@ -63,7 +68,7 @@ screen select_p1:
                     textbutton "[c.name]" xalign 0.5 action Return(c)
             textbutton "None" xalign 0.5 action Return("none")
 
-screen select_p2:
+screen select_p2():
     style_prefix "confirm"
     frame:
         yalign 0.2
@@ -74,7 +79,7 @@ screen select_p2:
                     textbutton "[c.name]" xalign 0.5 action Return(c)
             textbutton "None" xalign 0.5 action Return("none")
 
-screen battle_tooltip:
+screen battle_tooltip():
     zorder 20
     $ tooltip = GetTooltip()
     if tooltip:
@@ -86,7 +91,7 @@ screen battle_tooltip:
     else:
         timer 0.001 action SetVariable("tt_timer", False)
 
-screen battle_overlay:
+screen battle_overlay():
     fixed:
         xoffset 192
         for p in battle_players:
@@ -114,7 +119,7 @@ screen battle_overlay:
                         text "[p.hp]/[p.hpmax]" xanchor .5 yalign 0.0075
                         text "[p.mp]/[p.mpmax]" xanchor .5 yalign 0.0575
 
-screen display_monsters:
+screen display_monsters():
     fixed:
         pos (576, 448)
         for m in monster_slot[0:4]:
@@ -144,7 +149,7 @@ screen display_monsters:
                         tooltip "{0} HP: {1}".format(m.name, m.hp)
                     bar style "bar_mhp" value AnimatedValue(value=m.hp, range=m.hpmax, delay=0.25) anchor (0.5,1.0)
 
-screen battle_message:
+screen battle_message():
     add "images/battle/messagebox.png"
     hbox:
         xpos 110 yalign 0.07

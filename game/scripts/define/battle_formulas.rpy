@@ -1,7 +1,7 @@
 init python:
     def atkAll():
         renpy.play(atk_sfx)
-        renpy.pause(0.5, hard=True)
+        renpy.pause(0.2, hard=True)
         for t in battle_monsters:
             if not t.dead:
                 if accFormula(currentplayer, t):
@@ -13,7 +13,7 @@ init python:
 
     def atkRow():
         renpy.play(atk_sfx)
-        renpy.pause(0.5, hard=True)
+        renpy.pause(0.2, hard=True)
         for t in picked_targs:
             if accFormula(currentplayer, t):
                 dmgFormula(t)
@@ -25,7 +25,7 @@ init python:
     def atkEnemy():
         for t in picked_targs:
             renpy.play(atk_sfx)
-            renpy.pause(0.5, hard=True)
+            renpy.pause(0.2, hard=True)
             if accFormula(currentplayer, t):
                 dmgFormula(t)
                 t._hp -= t.finaldmg
@@ -37,14 +37,14 @@ init python:
     def atkAlly():
         for t in picked_targs:
             renpy.play(atk_sfx)
-            renpy.pause(0.5, hard=True)
+            renpy.pause(0.2, hard=True)
             t.hp -= damage
             t.mp -= mpdmg
             renpy.with_statement(s_trans)
 
     def atkSelf():
         renpy.play(atk_sfx)
-        renpy.pause(0.5, hard=True)
+        renpy.pause(0.2, hard=True)
         currentplayer.hp -= damage
         currentplayer.mp -= mpdmg
         renpy.with_statement(s_trans)
@@ -63,7 +63,7 @@ init python:
             msg_mons = t.name
             message = "attack_skill"
             renpy.play("audio/battle/skills/sword.ogg")
-            renpy.pause(0.5, hard=True)
+            renpy.pause(0.2, hard=True)
             if accFormula(currentplayer, t):
                 t.state = "hit"
                 dmgFormula(t)

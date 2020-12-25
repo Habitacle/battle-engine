@@ -15,7 +15,7 @@ label turn_actions:
             return
     return
 
-screen turn_select:
+screen turn_select():
     style_prefix "confirm"
     frame:
         yalign 0.2
@@ -47,7 +47,7 @@ label player_skill:
     call skill_effects from _call_skill_effects
     return
 
-screen choose_skill:
+screen choose_skill():
     add "images/battle/skillbox.png" pos 24, 214
     vpgrid:
         cols 3
@@ -104,7 +104,7 @@ label target_select(targs=1):
                         picked_targs.append(m)
     return
 
-screen select_ally:
+screen select_ally():
     style_prefix "confirm"
     frame:
         yalign 0.2
@@ -120,13 +120,13 @@ screen select_ally:
                             textbutton "[p.name]" xalign 0.5 action Return(p)
             textbutton "Cancel" xalign 0.5 action Function(renpy.pop_call), Jump("player_skill"), SensitiveIf(not picked_targs)
 
-screen select_monster:
+screen select_monster():
     frame:
         yalign 0.2
         has vbox:
             textbutton "Cancel" xalign 0.5 action Function(renpy.pop_call), Jump("player_skill"), SensitiveIf(not picked_targs)
 
-screen monster_dmg:
+screen monster_dmg():
     style_group "dmg"
     for m in monster_slot:
         if m in missed_t:
@@ -137,7 +137,7 @@ screen monster_dmg:
             text "[m.finaldmg]" anchor (.5,.5) pos m.dmg_pos at shake_fade
     timer 1 action Hide('monster_dmg')
 
-screen player_dmg:
+screen player_dmg():
     style_group "dmg"
     for p in battle_players:
         if p in missed_t:
