@@ -101,7 +101,7 @@ item_var = Item(name, desc, icon=False, value=0, act=Show("inventory_popup", mes
 * [TransitionConditionSwitch by Asceai](https://lemmasoft.renai.us/forums/viewtopic.php?t=26612)
 * [Mouse following Tooltip by Human Bolt Diary](https://lemmasoft.renai.us/forums/viewtopic.php?t=47205)
 * [Shake function by nyaatrap (animation.rpy)](https://github.com/nyaatrap/renpy-utilities)
-* Inspired by Dragonaqua's [RPG Battle System](https://lemmasoft.renai.us/forums/viewtopic.php?t=57105)
+* [Inspired by Dragonaqua's RPG Battle System](https://lemmasoft.renai.us/forums/viewtopic.php?t=57105)
 
 ### Sprites
 * [Character sprites from Persona Q2: New Cinema Labyrinth](https://www.spriters-resource.com/3ds/personaq2newcinemalabyrinth/sheet/124365/)
