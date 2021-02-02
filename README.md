@@ -15,7 +15,7 @@
 * "Attack", "Defend" and "Use Item" commands
 * Damage, accuracy, experience and leveling formulas
 * Randomized monster selection and slot position
-* In-battle inventory system (integrated from saguaro's script)
+* In-battle inventory system
 * Player selection screen
 * Mouse-following Tooltips
 * Message box at the top of the screen
@@ -24,7 +24,7 @@
 
 ## Screenshots
 
-![screenshot](https://i.ibb.co/PWTLJBf/image.png)
+![screenshot](https://i.ibb.co/H2wmjgc/image.png)
 ![screenshot](https://i.ibb.co/FzfYpzp/image.png)
 ![screenshot](https://i.ibb.co/Ybpbd4G/image.png)
 ![screenshot](https://i.ibb.co/VJ10kcn/image.png)
@@ -98,10 +98,10 @@ item_var = Item(name, desc, icon=False, value=0, act=Show("inventory_popup", mes
 
 ### Scripts
 * [Inventory system by saguaro](https://lemmasoft.renai.us/forums/viewtopic.php?t=25579)
-* [Adding Stats to Characters by Remix](https://lemmasoft.renai.us/forums/viewtopic.php?t=47911)
 * [TransitionConditionSwitch by Asceai](https://lemmasoft.renai.us/forums/viewtopic.php?t=26612)
 * [Mouse following Tooltip by Human Bolt Diary](https://lemmasoft.renai.us/forums/viewtopic.php?t=47205)
 * [Shake function by nyaatrap (animation.rpy)](https://github.com/nyaatrap/renpy-utilities)
+* Inspired by Dragonaqua's [RPG Battle System](https://lemmasoft.renai.us/forums/viewtopic.php?t=57105)
 
 ### Sprites
 * [Character sprites from Persona Q2: New Cinema Labyrinth](https://www.spriters-resource.com/3ds/personaq2newcinemalabyrinth/sheet/124365/)
