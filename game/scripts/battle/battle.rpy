@@ -102,7 +102,7 @@ screen battle_overlay():
                     focus_mask True
                     yalign 1.1 xpos p.img_pos
                     idle p.img + "_battle"
-                    tooltip "{0}\nATK: {1}\nDFN: {2}\n{3}".format(p.name, p.atk, p.dfn, p.skills[0].name)
+                    tooltip "{0}\nATK: {1}\nDFN: {2}\n{3}".format(p.name, p.atk, p.dfn, p.p_skills[0].name)
                     action  Function(playerAction(p))
             fixed:
                 pos p.bar_pos, 896
@@ -134,6 +134,7 @@ screen display_monsters():
                             insensitive im.MatrixColor(getImage(m), im.matrix.saturation(0.1))
                         tooltip "{0} HP: {1}".format(m.name, m.hp)
                     bar style "bar_mhp" value AnimatedValue(value=m.hp, range=m.hpmax, delay=0.25) anchor (0.5,1.0)
+                    text "[m.hp]" xanchor 0.5
     fixed:
         pos (576, 640)
         for m in monster_slot[4:8]:
@@ -148,6 +149,7 @@ screen display_monsters():
                             insensitive im.MatrixColor(getImage(m), im.matrix.saturation(0.1))
                         tooltip "{0} HP: {1}".format(m.name, m.hp)
                     bar style "bar_mhp" value AnimatedValue(value=m.hp, range=m.hpmax, delay=0.25) anchor (0.5,1.0)
+                    text "[m.hp]" xanchor 0.5
 
 screen battle_message():
     add "images/battle/messagebox.png"

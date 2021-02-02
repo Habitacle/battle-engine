@@ -93,15 +93,15 @@ init python:
             c.bonus_dfn = 0
             if c.dead == True:
                 c.dead = False
-                c.hp = 1
+                c._hp = 1
 
     def restorehp():
         for c in party_list:
-            c.hp = c.hpmax
+            c._hp = c.hpmax
 
     def restoremp():
         for c in party_list:
-            c.mp = c.mpmax
+            c._mp = c.mpmax
 
     def startPlayersTurn():
         for p in battle_players:
@@ -138,8 +138,8 @@ init python:
             message = "defend"
             Defend()
         currentplayer.turn = True
-        currentplayer.mp -= mp_lost
-        currentplayer.hp -= hp_lost
+        currentplayer._mp -= mp_lost
+        currentplayer._hp -= hp_lost
         player_inv.drop(dropitem)
         renpy.pause(1.5, hard=True)
         playersChk()
@@ -205,7 +205,7 @@ init python:
                 m.state = "dying"
                 msg_mons = m.name
                 message = "m_dead"
-                renpy.play(sfx_monsterdead())
+                renpy.play(sfx_monsterdead.draw())
                 renpy.pause(1)
                 message = "none"
                 monsters_dead += 1

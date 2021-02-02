@@ -13,12 +13,11 @@ init python:
             missed_t = []
             skill_t = []
             use_skill = False
-            playersChk()
             if not m.dead:
                 message = "none"
                 if not battleEnd:
                     monsterTarg(m)
-                    renpy.play(sfx_whoosh())
+                    renpy.play(sfx_whoosh.draw())
                     renpy.pause(0.3, hard=True)
                     renpy.play(atk_sfx)
                     msg_mons = m.name
@@ -35,6 +34,7 @@ init python:
                     renpy.pause(0.2, hard=True)
                     renpy.pause(1.0)
                     renpy.hide_screen("player_dmg")
+                    playersChk()
 
     def monsterTarg(m):
         global picked_targs
@@ -70,7 +70,7 @@ init python:
         if accFormula(m, p):
             if skillChk(p):
                 hit_t.append(p)
-                p.hp -= m_damage
+                p._hp -= m_damage
                 roll_shake = renpy.random.randint(1,2)
                 if roll_shake == 1:
                     renpy.with_statement(hpunch)

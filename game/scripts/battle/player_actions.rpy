@@ -6,7 +6,7 @@ label turn_actions:
         call screen turn_select
         $ currentplayer = _return
         if currentplayer != "done":
-            call player_skill from _call_player_skill
+            call player_skill
             $ endTurn()
             jump turn_actions
         else:
@@ -31,44 +31,52 @@ label player_skill:
     $ b_skill = _return
     if isinstance(b_skill, Skill):
         $ target = b_skill.targ
-        call target_select(b_skill.targs) from _call_target_select
+        call target_select(b_skill.targs)
     if b_skill == "item":
         $ message = "item"
         call screen inventory_inbattle(player_inv)
         hide screen inv_tooltip
         $ b_skill = _return
         $ target = getTarget(b_skill)
-        call target_select from _call_target_select_1
+        call target_select
     elif b_skill == "attack":
-        call target_select from _call_target_select_2
+        call target_select
         $ target = "attack"
     if b_skill == "defend":
         $ target = "defend"
-    call skill_effects from _call_skill_effects
+    call skill_effects
     return
 
 screen choose_skill():
-    add "images/battle/skillbox.png" pos 24, 214
+    key "mouseup_3" action Function(renpy.pop_call), Jump("turn_actions")
+    add "images/battle/skillbox.png" pos 8, 214
     vpgrid:
-        cols 3
-        xalign 0.2 yalign 0.32
+        align (0.06, 0.30)
+        cols 4
+        rows 2
+        spacing 32
+        transpose True
         for skll in currentplayer.skills:
-            if skll.type == "active":
-                if skll.img == None:
-                    textbutton "[skll.name]" align (.5,.5) action Return(skll), SensitiveIf(sensIf(skll)) tooltip "Damage: {0}\nMP Cost: {1}".format(skll.pwr, skll.mp_cost)
-                else:
-                    imagebutton:
-                        align (.5,.5) action Return(skll), SensitiveIf(sensIf(skll))
-                        idle getImage(skll)
-                        hover im.MatrixColor(getImage(skll), im.matrix.brightness(0.2))
-                        insensitive im.MatrixColor(getImage(skll), im.matrix.saturation(0.1))
-                        tooltip "{0}\nDamage: {1}\nMP Cost: {2}".format(skll.name, skll.pwr, skll.mp_cost)
+            if skll.img == None:
+                textbutton "[skll.name]" align (.5,.5) action Return(skll), SensitiveIf(sensIf(skll)) tooltip "Damage: {0}\nMP Cost: {1}".format(skll.pwr, skll.mp_cost)
+            else:
+                imagebutton:
+                    align (.5,.5) action Return(skll), SensitiveIf(sensIf(skll))
+                    idle getImage(skll)
+                    hover im.MatrixColor(getImage(skll), im.matrix.brightness(0.2))
+                    insensitive im.MatrixColor(getImage(skll), im.matrix.saturation(0.1))
+                    tooltip "{0}\nDamage: {1}\nMP Cost: {2}".format(skll.name, skll.pwr, skll.mp_cost)
+        for i in range(0, (8-len(currentplayer.skills))):
+            imagebutton:
+                idle "images/skills/blank.png"
         style_group "skills"
+    vbox:
+        align (0.35, 0.30)
         textbutton "Attack" align (.5,.5) action Return("attack")
         textbutton "Defend" align (.5,.5) action Return("defend")
         textbutton "Use Item" align (.5,.5) action Return("item")
         textbutton "Cancel" align (.5,.5) action Function(renpy.pop_call), Jump("turn_actions")
-    timer 30 action Hide('choose_skill'), Function(renpy.pop_call), Jump("turn_actions")
+    timer 300 action Hide('choose_skill'), Function(renpy.pop_call), Jump("turn_actions")
 
 label target_select(targs=1):
     if target == "enemy":
@@ -105,6 +113,7 @@ label target_select(targs=1):
     return
 
 screen select_ally():
+    key "mouseup_3" action Function(renpy.pop_call), Jump("player_skill"), SensitiveIf(not picked_targs)
     style_prefix "confirm"
     frame:
         yalign 0.2
@@ -121,6 +130,7 @@ screen select_ally():
             textbutton "Cancel" xalign 0.5 action Function(renpy.pop_call), Jump("player_skill"), SensitiveIf(not picked_targs)
 
 screen select_monster():
+    key "mouseup_3" action Function(renpy.pop_call), Jump("player_skill"), SensitiveIf(not picked_targs)
     frame:
         yalign 0.2
         has vbox:

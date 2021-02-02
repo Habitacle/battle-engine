@@ -2,6 +2,9 @@ default name = "Player"
 default currentplayer = "[name]"
 default eventrunning = False
 default _game_menu_screen = "preferences"
+init python:
+    if not renpy.variant("touch"):
+        config.mouse = {"default":[ ("images/cursor.png", 1, 1) ] }
 
 label load_setup:
     if not name:

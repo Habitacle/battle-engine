@@ -38,15 +38,15 @@ init python:
         for t in picked_targs:
             renpy.play(atk_sfx)
             renpy.pause(0.2, hard=True)
-            t.hp -= damage
+            t._hp -= damage
             t.mp -= mpdmg
             renpy.with_statement(s_trans)
 
     def atkSelf():
         renpy.play(atk_sfx)
         renpy.pause(0.2, hard=True)
-        currentplayer.hp -= damage
-        currentplayer.mp -= mpdmg
+        currentplayer._hp -= damage
+        currentplayer._mp -= mpdmg
         renpy.with_statement(s_trans)
 
     def Defend():
@@ -86,7 +86,7 @@ init python:
         miss_roll = renpy.random.randint(1, 10)
         if miss_roll > accuracy:
             missed_t.append(d)
-            renpy.play(sfx_whoosh())
+            renpy.play(sfx_whoosh.draw())
             renpy.show_screen("monster_dmg")
             return False
         else:
