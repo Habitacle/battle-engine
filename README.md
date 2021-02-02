@@ -100,6 +100,8 @@ item_var = Item(name, desc, icon=False, value=0, act=Show("inventory_popup", mes
 * [Inventory system by saguaro](https://lemmasoft.renai.us/forums/viewtopic.php?t=25579)
 * [TransitionConditionSwitch by Asceai](https://lemmasoft.renai.us/forums/viewtopic.php?t=26612)
 * [Mouse following Tooltip by Human Bolt Diary](https://lemmasoft.renai.us/forums/viewtopic.php?t=47205)
+* [Random statement by PyTom](https://patreon.renpy.org/three-creator-defined-statements.html)
+* [Random Bag by PyTom](https://patreon.renpy.org/python-tricks-2.html)
 * [Shake function by nyaatrap (animation.rpy)](https://github.com/nyaatrap/renpy-utilities)
 * [Inspired by Dragonaqua's RPG Battle System](https://lemmasoft.renai.us/forums/viewtopic.php?t=57105)
 
