@@ -16,11 +16,11 @@ label load_monsters:
 
 init python:
     class Monster(object):
-        def __init__(self, name, hpmax, atk, dfn, exp, lvl, img, sfx_atk, anim=idle_shake, skills=[], state=None, dead=False, finaldmg=0, slot=1, sprite_pos=0, dmg_pos=(0,0), mp=0):
+        def __init__(self, name, hpmax, atk, dfn, exp, lvl, img, sfx_atk, anim=idle_shake, skills=[], state=None, dead=False, finaldmg=0, slot=1, sprite_pos=0, dmg_pos=(0,0)):
             self.name = name
             self.hpmax = hpmax
             self._hp = 0
-            self.mp = mp
+            self._mp = 0
             self.atk = atk
             self.dfn = dfn
             #self.vel = vel
