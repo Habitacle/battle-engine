@@ -234,6 +234,7 @@ screen money(inventory, second_inventory, bank_mode=False):
             textbutton "Transfer" action Show("banking", depositor=inventory, withdrawer=second_inventory)
 
 screen banking(depositor, withdrawer):
+    key "mouseup_3" action Function(renpy.pop_call), Hide("banking")
     modal True
     frame:
         style_group "invstyle"

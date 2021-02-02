@@ -41,15 +41,15 @@ init python:
     def afterFX(s, t):
         global currentplayer
         if s == lifedrain:
-            currentplayer.hp += t.finaldmg/2
+            currentplayer._hp += t.finaldmg/2
         if s == souldrain:
-            currentplayer.hp += t.finaldmg
+            currentplayer._hp += t.finaldmg
 
     def radarFX(p):
         global skilltext
         global radar_block
         radar_block = False
-        if radar in p.skills:
+        if radar in p.p_skills:
             miss_roll = renpy.random.randint(1, 10)
             if miss_roll > 2:
                 renpy.play("audio/battle/skills/defend.ogg")
@@ -81,8 +81,10 @@ init python:
             self.lvl = lvl
 
         def addSkill(self, char):
-            if not self in char.skills:
+            if self.type == "active" and not self in char.skills:
                 char.skills.append(self)
+            if self.type == "passive" and not self in char.p_skills:
+                char.p_skills.append(self)
 
         def useSkill(self):
             global damage

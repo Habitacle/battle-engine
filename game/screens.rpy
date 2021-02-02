@@ -78,10 +78,12 @@ style frame:
 
 screen name_input():
     modal True
-    zorder 200
+    zorder 100
     style_prefix "confirm"
     add "gui/overlay/confirm.png"
     frame:
+        if renpy.variant("touch"):
+            yalign 0.05
         has vbox:
             spacing 30
         label _("Choose your name"):
@@ -93,27 +95,6 @@ screen name_input():
             spacing 50
             textbutton "Start" action Start()
             textbutton "Back" action Hide("name_input")
-
-screen name_input():
-    variant "touch"
-    modal True
-    zorder 200
-    style_prefix "confirm"
-    add "gui/overlay/confirm.png"
-    frame:
-        yalign 0.05
-        has vbox:
-            spacing 30
-        label _("Choose your name"):
-            style "confirm_prompt"
-            xalign 0.5
-        input default "" value VariableInputValue('name', returnable=True) length 12 allow "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" xalign 0.5
-        hbox:
-            xalign 0.5
-            spacing 50
-            textbutton "Start" action Start()
-            textbutton "Back" action Hide("name_input")
-
 
 ## Say screen ##################################################################
 ##
@@ -321,7 +302,7 @@ screen navigation():
         yalign 0.5
         spacing gui.navigation_spacing
         if main_menu:
-            textbutton _("New Game") action Show(screen="name_input")#Start()
+            textbutton _("New Game") action Show(screen="name_input")
         else:
             textbutton _("History") action ShowMenu("history")
             textbutton _("Save") action ShowMenu("save")

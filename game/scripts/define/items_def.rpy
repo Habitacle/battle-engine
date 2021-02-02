@@ -60,6 +60,7 @@ init python:
         msg_skill = i.name
 
 screen inventory_inbattle(first_inventory):
+    key "mouseup_3" action Jump("player_skill")
     default crafting_screen = False
     tag menu
     modal True
@@ -72,7 +73,7 @@ screen inventory_inbattle(first_inventory):
                 label first_inventory.name
                 use inventory_battleview(first_inventory)
                 use view_nav(first_inventory)
-                textbutton "Cancel" action Function(renpy.pop_call), Jump("player_skill")
+                textbutton "Cancel" action Jump("player_skill")
 
 screen inventory_battleview(inventory):
     side "c r":
