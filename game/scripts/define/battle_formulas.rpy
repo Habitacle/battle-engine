@@ -7,7 +7,7 @@ init python:
                 if accFormula(currentplayer, t):
                     dmgFormula(t)
                     t._hp -= t.finaldmg
-                    t.mp -= mpdmg
+                    t._mp -= mpdmg
         renpy.show_screen("monster_dmg")
         renpy.with_statement(s_trans)
 
@@ -18,7 +18,7 @@ init python:
             if accFormula(currentplayer, t):
                 dmgFormula(t)
                 t._hp -= t.finaldmg
-                t.mp -= mpdmg
+                t._mp -= mpdmg
                 renpy.show_screen("monster_dmg")
                 renpy.with_statement(s_trans)
 
@@ -29,7 +29,7 @@ init python:
             if accFormula(currentplayer, t):
                 dmgFormula(t)
                 t._hp -= t.finaldmg
-                t.mp -= mpdmg
+                t._mp -= mpdmg
                 renpy.show_screen("monster_dmg")
                 renpy.with_statement(s_trans)
                 afterFX(b_skill, t)
@@ -39,7 +39,7 @@ init python:
             renpy.play(atk_sfx)
             renpy.pause(0.2, hard=True)
             t._hp -= damage
-            t.mp -= mpdmg
+            t._mp -= mpdmg
             renpy.with_statement(s_trans)
 
     def atkSelf():
@@ -68,7 +68,7 @@ init python:
                 t.state = "hit"
                 dmgFormula(t)
                 t._hp -= t.finaldmg
-                t.mp -= mpdmg
+                t._mp -= mpdmg
                 renpy.show_screen("monster_dmg")
                 renpy.with_statement(hpunch)
                 renpy.pause(0.2)
