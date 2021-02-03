@@ -33,10 +33,10 @@
 
 ### Create new character:
 1. Open scripts/define/char_def.rpy and scroll to the bottom
-2. Use the commented template and follow the previous examples to define a new character:
+2. Use this template and follow the previous examples to define a new character:
 ```
 define character.var = Character("Name", image="")
-default var = CharStats("var", img="", skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
+default var = Char("Name", img="", skills=[], p_skills=[], equip={'hand': None, 'head': None, 'chest': None, 'accs': None})
 ```
 3. Open scripts/define/assets/images.rpy and define the battle avatar, either following the examples or using this more basic template:
 ```
