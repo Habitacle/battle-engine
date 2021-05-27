@@ -60,7 +60,7 @@ init python:
         msg_skill = i.name
 
 screen inventory_inbattle(first_inventory):
-    key "mouseup_3" action Jump("player_skill")
+    key "mouseup_3" action Hide("inv_tooltip"), Jump("player_skill")
     default crafting_screen = False
     tag menu
     modal True
